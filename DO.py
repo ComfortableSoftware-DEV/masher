@@ -3946,7 +3946,7 @@ def dispatchEvents(thisDevice_):
 		isPast_ = False
 
 	hasPaused_ = DEVICES[thisDevice_][DEV_HASPAUSED]
-	print(f"""dispatchEvents spent_ {spent_} nextDelta_ {CF.frameItMS("nextDelta_", nextDelta_)} isPast_ {isPast_} hasPaused_ {hasPaused_} thisQueue_ {thisQueue_} {CF.frameItMS("DEVICES[thisDevice_][DEV_RPT_NEXTTIME]", DEVICES[thisDevice_][DEV_RPT_NEXTTIME])} {CF.frameItMS("TIMEMS", TIMEMS)}""")
+	# print(f"""dispatchEvents spent_ {spent_} nextDelta_ {CF.frameItMS("nextDelta_", nextDelta_)} isPast_ {isPast_} hasPaused_ {hasPaused_} thisQueue_ {thisQueue_} {CF.frameItMS("DEVICES[thisDevice_][DEV_RPT_NEXTTIME]", DEVICES[thisDevice_][DEV_RPT_NEXTTIME])} {CF.frameItMS("TIMEMS", TIMEMS)}""")
 
 	if ((spent_ is True) and (nextDelta_ != 0) and (isPast_ is True)) or (spent_ is False):
 	# 1⥥ 1⥥ 1⥥ 1⥥ 1⥥ 1⥥ 1⥥ 1⥥ 1⥥ 1⥥ 1⥥ 1⥥ 1⥥ 1⥥ 1⥥ 1⥥ 1⥥ 1⥥ 1⥥ 1⥥ 1⥥ 1⥥ 1⥥ 1⥥ 1⥥ 1⥥ 1⥥ 1⥥ 1⥥ 1⥥ 1⥥ 1⥥ 1⥥ 1⥥ 1⥥ 1⥥ 1⥥ 1⥥ 1⥥ 1⥥ 1⥥ 1⥥ 1⥥ 1⥥ 1⥥ 1⥥ 1⥥ 1⥥ 1⥥ 1⥥ 1⥥ 1⥥ 1⥥ 1⥥ if (spent_ is True and nextDelta_ != 0 and isPast_ is True) or (spent_ is False):
