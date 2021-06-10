@@ -245,7 +245,6 @@ CODES2STRIP = [  # {'CODES2STRIP': "dict holding all of the things to strip from
 ]
 
 #
-
 # * #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
 # * SCTN0003 TYPEs and lambda
 # * #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
@@ -377,6 +376,10 @@ FMAXDO_SCTN0405_HOLDABLEADD1 = "FMAXDO_SCTN0405_HOLDABLEADD1"  # define holdable
 FMAXDO_SCTN0405_HOLDABLEADD2 = "FMAXDO_SCTN0405_HOLDABLEADD2"  # define holdable items in profile <NAC><DEV_MYNAME><BTNTYPE><REPEATRATE><HOLDABLE1><HOLDABLE2><NOTHOLDABLE><Ax>
 FMAXDO_SCTN0405_NOTHOLDABLEADD1 = "FMAXDO_SCTN0405_NOTHOLDABLEADD1"  # not holdable PROF items <NAC><DEV_MYNAME><BTNTYPE><REPEATRATE><NOTHOLDABLE><Ax>
 FMAXDO_SCTN0405_NOTHOLDABLEMODEDADD1 = "FMAXDO_SCTN0405_NOTHOLDABLEMODEDADD1"  # not holdable PROF items with a mode <NAC><DEV_MYNAME><BTNTYPE><REPEATRATE><MODENAME><NOTHOLDABLE><Ax>
+FMAXDO_SCTN0405_PROFILE_BULLETPOINT_ADD = "FMAXDO_SCTN0405_PROFILE_BULLETPOINT_ADD"  #
+FMAXDO_SCTN0405_PROFILE_DEF = "FMAXDO_SCTN0405_PROFILE_DEF"  # define the profile for the profile documentation <NAC><PROFILENAME><DESCRIPTION><FILENAME>
+FMAXDO_SCTN0405_PROFILE_DESCRIPTION_DEF = "FMAXDO_SCTN0405_PROFILE_DESCRIPTION_DEF"  # DESCRIPTION for this profile <NAC><PROFILENAME><DESCRIPTION>
+FMAXDO_SCTN0405_PROFILE_TEXTLINE_ADD = "FMAXDO_SCTN0405_PROFILE_TEXTLINE_ADD"  # define the profile for the profile documentation <NAC><PROFILENAME><TEXTLINE>
 FMAXDO_SCTN0406_XLATEADD = "FMAXDO_SCTN0406_XLATEADD"  # add an item to an XLATE entry <NAC><DEV_MYNAME><DEVBTN><COMMONBTN>
 FMAXDO_SCTN0407_BTNSDEF = "FMAXDO_SCTN0407_BTNSDEF"  # define buttons all around <NAC><BTNNAME><HOLDABLE>
 FMAXDO_SCTN0408_EVTYPEDEF = "FMAXDO_SCTN0408_EVTYPEDEF"  # define a device type list type<NAC>
@@ -431,6 +434,10 @@ FMAXFM_AXLST = [
 	FMAXDO_SCTN0405_HOLDABLEADD2,  # define holdable items in profile <NAC><DEV_MYNAME><BTNTYPE><REPEATRATE><HOLDABLE1><HOLDABLE2><NOTHOLDABLE><Ax>
 	FMAXDO_SCTN0405_NOTHOLDABLEADD1,  # not holdable PROF items <NAC><DEV_MYNAME><BTNTYPE><REPEATRATE><NOTHOLDABLE><Ax>
 	FMAXDO_SCTN0405_NOTHOLDABLEMODEDADD1,  # not holdable PROF items with a mode <NAC><DEV_MYNAME><BTNTYPE><REPEATRATE><MODENAME><NOTHOLDABLE><Ax>
+	FMAXDO_SCTN0405_PROFILE_BULLETPOINT_ADD,  #
+	FMAXDO_SCTN0405_PROFILE_DEF,  # define the profile for the profile documentation <NAC><PROFILENAME><DESCRIPTION><FILENAME>
+	FMAXDO_SCTN0405_PROFILE_DESCRIPTION_DEF,  # DESCRIPTION for this profile <NAC><PROFILENAME><DESCRIPTION>
+	FMAXDO_SCTN0405_PROFILE_TEXTLINE_ADD,  # define the profile for the profile documentation <NAC><PROFILENAME><TEXTLINE>
 	FMAXDO_SCTN0406_XLATEADD,  # add an item to an XLATE entry <NAC><DEV_MYNAME><DEVBTN><COMMONBTN>
 	FMAXDO_SCTN0407_BTNSDEF,  # define buttons all around <NAC><BTNNAME><HOLDABLE>
 	FMAXDO_SCTN0408_EVTYPEDEF,  # define a device type list type<NAC>
@@ -484,6 +491,7 @@ FMDO_SCTN0404_DEVICESDICT = {}  # SCTN24 devices dict
 FMDO_SCTN0405_BTNNDXDICT = {}  # SCTN45 device BTNTYPE dict
 FMDO_SCTN0405_BTNTYPEDICT = {}  # SCTN45 device BTNTYPE dict
 FMDO_SCTN0405_PROFDICT = {}  # SCTN45 device profile dict
+FMDO_SCTN0405_PROF_MARKDOWN_DICT = {}  # holds all of the on the fly self documenting
 FMDO_SCTN0405_RPTDICT = {}  # SCTN45 device RPT dict
 FMDO_SCTN0406_XLATECMNTDICT = {}  # SCTN26 XLATE dict
 FMDO_SCTN0406_XLATEDICT = {}  # SCTN26 XLATE dict
@@ -3271,6 +3279,7 @@ def parseTBGLST(FDTBGLST):
 		FMDO_SCTN0405_BTNNDXDICT, \
 		FMDO_SCTN0405_BTNTYPEDICT, \
 		FMDO_SCTN0405_PROFDICT, \
+		FMDO_SCTN0405_PROF_MARKDOWN_DICT, \
 		FMDO_SCTN0405_RPTDICT, \
 		FMDO_SCTN0406_XLATECMNTDICT, \
 		FMDO_SCTN0406_XLATEDICT, \
@@ -4060,10 +4069,10 @@ def __main__():
 
 	# FM_MAIN_DO_BEGINS
 	# fold here ⥥2⥥2⥥2⥥2⥥2⥥2⥥2⥥2⥥2⥥2⥥2⥥2⥥2⥥2⥥2⥥2⥥2⥥2⥥2⥥2⥥2⥥2⥥2⥥2⥥2⥥2⥥2⥥2⥥2⥥2⥥2⥥2⥥2⥥2⥥2⥥2⥥2⥥2⥥2⥥2⥥2⥥2⥥2⥥2⥥2⥥2⥥2⥥2⥥2⥥2⥥2⥥2⥥2⥥2⥥2⥥2⥥2⥥2⥥2⥥2⥥2⥥2⥥2⥥2⥥2⥥2⥥2⥥2⥥2⥥2⥥2⥥2⥥2⥥2⥥2
-	with open(NAME_GLBL_NEW_PY("DO"), "tw") as FDOut:
+	with open(NAME_LCL_NEW_PY("DO"), "tw") as FDOut:
 		strToWrt_ = makeDO()
 		FDOut.writelines(strToWrt_)
-	with open(NAME_GLBL_SUB_PY("DO", "HBI"), "tw") as FDOut:
+	with open(NAME_LCL_PY("DO", "HBI"), "tw") as FDOut:
 		strToWrt_ = makeDOHBI()
 		FDOut.writelines(strToWrt_)
 	# fold here ⥣2⥣2⥣2⥣2⥣2⥣2⥣2⥣2⥣2⥣2⥣2⥣2⥣2⥣2⥣2⥣2⥣2⥣2⥣2⥣2⥣2⥣2⥣2⥣2⥣2⥣2⥣2⥣2⥣2⥣2⥣2⥣2⥣2⥣2⥣2⥣2⥣2⥣2⥣2⥣2⥣2⥣2⥣2⥣2⥣2⥣2⥣2⥣2⥣2⥣2⥣2⥣2⥣2⥣2⥣2⥣2⥣2⥣2⥣2⥣2⥣2⥣2⥣2⥣2⥣2⥣2⥣2⥣2⥣2⥣2⥣2⥣2⥣2⥣2⥣2
